@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLAMES</title>
+    <style>
+        /* Add your CSS styles here*/
+        body{
+            background-image: url('bg.jpg');
+            background-position: fixed;
+            background-repeat: no-repeat;
+            background-size: cover; /* Ensure the background image covers the entire viewport*/
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+        }
+
+        .header{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-image:url(./wp3201929-love-symbol-wallpapers-hd-fotor-20240209204425.jpg);
+            background-position: center;
+            background-size: auto;
+            background-repeat: no-repeat;
+            border-bottom: 1px solid black;
+            text-align: center; /* Center align text*/
+            padding: 10px 0; /* Add some padding*/
+            z-index: 1000; /* Ensure it's above other elements*/
+            transition: background-color 0.3s; /* Add transition effect*/
+        }
+
+        .header:hover{
+            background-color: rgba(255, 255, 255, 0.95); /* Lighten the background on hover*/
+        }
+
+        .header-text{
+            font-size: 24px; /* Adjust font size*/
+            color: #ff002b; /* Red color*/
+            cursor: pointer; /* Change cursor to pointer*/
+            transition: color 0.3s; /* Add transition effect for color*/
+        }
+
+        .header-text:hover{
+            color: #07f45e; /* Change color on hover*/
+        }
+
+        b{
+            color: rgb(190, 10, 245);
+            font-size: larger;
+        }
+
+        .card{
+            width: 80%;
+            max-width: 500px; /* Limit maximum width*/
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background*/
+            backdrop-filter: blur(10px); /* Apply blur effect*/
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            padding: 20px; /* Add some padding*/
+            text-align: center; /* Center align content*/
+        }
+
+        .card:hover{
+            transform: scale(1.1);
+        }
+
+        h2{
+            color: #f309eb;
+        }
+
+        .form-group{
+            margin-bottom: 20px;
+        }
+
+        .form-group label{
+            display: block;
+            margin-bottom: 5px;
+            color: #ff0004;
+            font-weight: bold; /* Use bold font weight*/
+        }
+
+        .form-group input{
+            width: calc(100% - 20px); /* Adjust width*/
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        .form-group button{
+            width: 50%; /* Adjust width*/
+            padding: 10px;
+            background-color: #f50dbf;
+            color: #fff;
+            border: none;
+            border-radius: 50px; /* Make it round*/
+            cursor:grab;
+            transition: background-color 0.3s;
+        }
+
+        .form-group button:hover{
+            background-color: #0056b3;
+        }
+
+        #result{
+            margin-top: 20px;
+            color: #ac03f4;
+            font-family: cursive;
+            font-weight: bolder;
+            text-transform: capitalize;
+        }
+
+        .container{
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .container h3{
+            color: #f309eb;
+        }
+
+        .container hr{
+            border: 1px solid #ccc;
+            width: 50%;
+            margin: 10px auto;
+        }
+
+        .container .txt-railway{
+            color: #0056b3;
+        }
+
+        .container .social{
+            margin: 0 5px;
+            color: #555;
+            transition: color 0.3s;
+        }
+
+        .container .social:hover{
+            color: #0056b3;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f7f1f100;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+</head>
+<body>
+
+<div class="header" onmouseover="revealFullForm()" onmouseout="hideFullForm()">
+    <h1 class="header-text"><b>F.L.A.M.E.S</b></h1>
+</div>
+
+<div class="card">
+    <h2>FLAMES</h2>
+    <div class="form-group">
+        <label for="name"> Enter Your Name</label>
+        <input type="text" id="name" placeholder="Enter your name">
+    </div>
+    <div class="form-group">
+        <label for="crush-name">Enter Your Crush Name</label>
+        <input type="text" id="crush-name" placeholder="Enter your crush's name">
+    </div>
+    <div class="form-group">
+        <button onclick="calculateFLAMES()">FIND FLAMES</button>
+    </div>
+    <div id="result">
+    </div>
+</div>
+
+
+
+<div class="footer">
+    <div class="container">
+        <hr>
+            <div class="text-center center-block">
+                <!-- <p class="txt-railway">- Bootsnipp.com -</p> -->
+                <br>
+                    <a href="https://www.facebook.com/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+                    <a href="https://twitter.com/"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+                    <a href="https://plus.google.com/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+                    <a href="mailto:abdulperambur212@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+            </div>
+        <hr>
+    </div>
+</div>
+
+<script>
+    // Define function to reveal the full form of FLAMES
+    function revealFullForm() {
+        var headerText = document.querySelector('.header-text')
+        headerText.textContent = "Friendship Lover Affection Marriage Enemy Sister";
+    }
+
+    // Define function to hide the full form of FLAMES
+    function hideFullForm() {
+        var headerText = document.querySelector('.header-text')
+        headerText.textContent = "FLAMES";
+    }
+
+    // Define function to calculate FLAMES
+    function calculateFLAMES() {
+        // Retrieve names from input fields
+        var yourName = document.getElementById('name').value.toLowerCase()
+        var crushName = document.getElementById('crush-name').value.toLowerCase()
+
+        // Check if both names are filled
+        if (yourName.trim() === '' || crushName.trim() === '') {
+            alert("Please enter both your name and your crush's name.")
+            return;
+        }
+        // Your FLAMES result calculation logic
+        var flamesResult = calculateFLAMESResult(yourName, crushName);
+
+        // Display the result
+        var resultElement = document.getElementById('result');
+        resultElement.innerHTML = flamesResult;
+    }
+
+    // Function to calculate FLAMES result
+    function calculateFLAMESResult(yourName, crushName) {
+        // Remove common letters and convert names to lowercase
+        yourName = yourName.toLowerCase().replace(/\s/g, '')
+        crushName = crushName.toLowerCase().replace(/\s/g, '')
+
+        // Initialize an array with the letters of FLAMES
+        var flamesLetters = ['F', 'L', 'A', 'M', 'E', 'S']
+
+        // Iterate through each letter in your name
+        for (var i = 0; i < yourName.length; i++) {
+            // Check if the current letter exists in the crush's name
+            var index = crushName.indexOf(yourName[i])
+            if (index !== -1) {
+                // If the letter is found in the crush's name, remove it from both names
+                yourName = yourName.slice(0, i) + yourName.slice(i + 1)
+                crushName = crushName.slice(0, index) + crushName.slice(index + 1)
+                // Adjust the index to match the new length of the crush's name
+                i--
+            }
+        }
+
+        // Calculate the total remaining letters
+        var remainingLetters = yourName.length + crushName.length
+
+        // Determine the result based on the remaining letters
+        var resultIndex = remainingLetters % flamesLetters.length
+        if (resultIndex === 0) {
+            resultIndex = flamesLetters.length
+        }
+
+        // Get the meaning of the result letter
+        var resultMeaning = flamesLetters[resultIndex - 1]
+
+        // Define the meanings corresponding to each letter of FLAMES
+        var meanings = {
+            'F': 'Friends',
+            'L': 'Lovers',
+            'A': 'Affection',
+            'M': 'Marriage',
+            'E': 'Enemies',
+            'S': 'Sisters'
+        }
+
+        // Get the meaning of the result letter
+        var resultMessage = `Your FLAMES result is: ${meanings[resultMeaning]}`
+
+        // Define the quotes corresponding to each letter of FLAMES
+        var quotes = {
+            'F': "Friendship is born at that moment when one person says to another, 'What! You too? I thought I was the only one.'}",
+            'L': "Love is composed of a single soul inhabiting two bodies.",
+            'A': "The best thing to hold onto in life is each other.",
+            'M': "A successful marriage requires falling in love many times, always with the same person.",
+            'E': "Keep your friends close, but your enemies closer.",
+            'S': "A sister is a little bit of childhood that can never be lost."
+        }
+
+        // Get a quote based on the result
+        var quote = quotes[resultMeaning]
+
+        // Construct the result message
+        return resultMessage + "<br>" + quote
+    }
+</script>
+
+</body>
+</html>
